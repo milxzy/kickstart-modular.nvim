@@ -179,6 +179,17 @@ return {
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
         --
+        phpactor = {
+          on_attach = on_attach, -- Use the on_attach function you've already defined
+          init_options = {
+            ['language_server_phpstan.enabled'] = false,
+            ['language_server_psalm.enabled'] = false,
+          },
+          capabilities = require('cmp_nvim_lsp').default_capabilities(),
+          flags = {
+            debounce_text_changes = 150,
+          },
+        },
 
         lua_ls = {
           -- cmd = {...},
